@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const productRoutes = require('./routes/productRoutes');
-const variantRoutes = require('./routes/variantRoutes');
+const Prouter = require('./routes/productRoutes');
+const Vrouter = require('./routes/variantRoutes');
 require('dotenv').config();
 
 
@@ -11,8 +11,8 @@ const PORT = 5000;
 
 app.use(bodyParser.json());
 
-app.use('/api', productRoutes);
-app.use('/api', variantRoutes);
+app.use('/api', Prouter);
+app.use('/api', Vrouter);
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
